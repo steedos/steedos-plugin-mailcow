@@ -1,0 +1,32 @@
+{
+  "name": "@steedos/plugin-mailcow",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/steedos/steedos-plugin-mailcow.git"
+  },
+  "author": "Jack Zhuang",
+  "license": "ISC",
+  "dependencies": {
+    "@steedos/meteor-bundle-runner": "^1.1.5",
+    "@steedos/objectql": "^0.0.10",
+    "steedos-server": "^1.2.2"
+  },
+  "devDependencies": {},
+  "bugs": {
+    "url": "https://github.com/steedos/steedos-plugin-mailcow/issues"
+  },
+  "homepage": "https://github.com/steedos/steedos-plugin-mailcow#readme",
+  "resolutions": {
+    "graphql": "^14.1.1",
+    "@steedos/objectql": "^0.0.10",
+    "@steedos/core": "^1.1.14",
+    "@steedos/auth": "^1.0.4"
+  }
+}

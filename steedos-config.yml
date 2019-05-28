@@ -1,0 +1,20 @@
+env:
+  PORT: 5600
+datasources:
+  default:
+    connection: 
+      host: 127.0.0.1
+      database: steedos
+  mongo:
+    connection: 
+      driver: mongo
+      host: 127.0.0.1
+      database: steedos
+    objects: 
+      - "./src"
+    apps:
+      - "./src/contract.app.yml"
+cfs:
+  store: "local"
+  local: 
+    folder: "./storage"

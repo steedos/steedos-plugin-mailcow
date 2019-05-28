@@ -1,0 +1,34 @@
+name: mailbox
+label: Mailbox
+icon: macros
+fields:
+  username:
+    type: text
+    label: Username
+    is_name: true
+    primary: true
+  name:
+    type: text
+    label: Name
+list_views:
+  all:
+    label: All
+    columns:
+      - username
+      - name
+    filter_scope: space
+permission_set:
+  user:
+    allowCreate: true
+    allowDelete: true
+    allowEdit: true
+    allowRead: true
+    modifyAllRecords: false
+    viewAllRecords: true
+  admin:
+    allowCreate: true
+    allowDelete: true
+    allowEdit: true
+    allowRead: true
+    modifyAllRecords: true
+    viewAllRecords: true

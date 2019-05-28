@@ -1,0 +1,7 @@
+_id: mailcow
+name: Mailcow
+description: Mailcow App
+icon_slds: thanks
+is_creator: true
+objects: 
+  - mailcow.mailbox
