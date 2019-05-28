@@ -8,7 +8,11 @@ server.Fiber(function () {
             var steedosSchema = objectql.getSteedosSchema()
             steedosSchema.addDataSource('mailcow', {
                 driver: "mysql",
-                url: "mysql://mailcow:kSwR8tkHWwPYaMpv06faAw6rNYBP@127.0.0.1:13306/mailcow",
+                host: "127.0.0.1",
+                port: 13306,
+                username: "mailcow",
+                password: "kSwR8tkHWwPYaMpv06faAw6rNYBP",
+                database: "mailcow",
                 objectFiles: [path.resolve(__dirname, "./src")],
                 appFiles: [path.resolve(__dirname, "./src")]
             });
