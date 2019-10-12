@@ -5,15 +5,18 @@ datasources:
     connection: 
       host: 127.0.0.1
       database: steedos
-  mongo:
+  mailcow:
     connection: 
-      driver: mongo
-      host: 127.0.0.1
-      database: steedos
-    objects: 
-      - "./src"
-    apps:
-      - "./src/contract.app.yml"
+      driver: mysql
+      host: 192.168.0.33
+      port: 13306
+      username: mailcow
+      password: kSwR8tkHWwPYaMpv06faAw6rNYBP
+      database: mailcow
+    objectFiles: 
+      - "./mailcow/"
+    appFiles:
+      - "./mailcow/mailcow.app.yml"
 cfs:
   store: "local"
   local: 
