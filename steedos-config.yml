@@ -14,7 +14,7 @@ datasources:
       password: XUG2UPgw8NnHkkCjHc3Qk6VYt1fF
       database: mailcow
     objectFiles: 
-      - "./mailcow/*.object.yml"
+      - "./mailcow/**/"
     appFiles:
       - "./mailcow/mailcow.app.yml"
 cfs:
