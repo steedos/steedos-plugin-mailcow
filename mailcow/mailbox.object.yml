@@ -1,11 +1,12 @@
 name: mailbox
+table_name: mailbox
 label: Mailbox
 icon: macros
+enable_api: true
 fields:
   username:
     type: text
     label: Username
-    is_name: true
     primary: true
   name:
     type: text
@@ -24,7 +25,7 @@ permission_set:
     allowEdit: true
     allowRead: true
     modifyAllRecords: false
-    viewAllRecords: true
+    viewAllRecords: false
   admin:
     allowCreate: true
     allowDelete: true

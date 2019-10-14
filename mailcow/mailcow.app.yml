@@ -4,4 +4,4 @@ description: Mailcow App
 icon_slds: thanks
 is_creator: true
 objects: 
-  - mailcow.mailbox
+  - mailbox

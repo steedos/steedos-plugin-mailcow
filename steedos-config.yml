@@ -11,10 +11,10 @@ datasources:
       host: 192.168.0.33
       port: 13306
       username: mailcow
-      password: kSwR8tkHWwPYaMpv06faAw6rNYBP
+      password: XUG2UPgw8NnHkkCjHc3Qk6VYt1fF
       database: mailcow
     objectFiles: 
-      - "./mailcow/"
+      - "./mailcow/*.object.yml"
     appFiles:
       - "./mailcow/mailcow.app.yml"
 cfs:
