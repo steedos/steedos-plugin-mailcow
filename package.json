@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "debug": "nodemon server.js",
-    "start": "node server",
+    "start": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,7 +18,8 @@
     "@steedos/accounts": "^1.7.0",
     "@steedos/steedos-plugin-workflow": "^1.7.0",
     "nodemon": "^1.19.1",
-    "steedos-server": "^1.7.2"
+    "steedos-server": "^1.7.2",
+    "ts-node": "^8.4.1"
   },
   "bugs": {
     "url": "https://github.com/steedos/steedos-plugin-mailcow/issues"
@@ -32,6 +33,7 @@
     "**/cryptiles": "^4.1.2"
   },
   "dependencies": {
+    "imap-simple": "^4.3.0",
     "mysql": "^2.17.1"
   }
 }

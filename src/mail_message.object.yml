@@ -1,0 +1,38 @@
+name: unread_mail
+table_name: unread_mail
+label: 未读邮件
+icon: macros
+enable_api: true
+fields:
+  uid:
+    type: text
+    label: 邮件Id
+    primary: true
+  subject:
+    type: text
+    label: 邮件标题
+  date:
+    type: datetime
+    label: 时间
+list_views:
+  all:
+    label: All
+    columns:
+      - subject
+      - date
+    filter_scope: space
+permission_set:
+  user:
+    allowCreate: false
+    allowDelete: false
+    allowEdit: false
+    allowRead: true
+    modifyAllRecords: false
+    viewAllRecords: false
+  admin:
+    allowCreate: false
+    allowDelete: false
+    allowEdit: false
+    allowRead: true
+    modifyAllRecords: false
+    viewAllRecords: false

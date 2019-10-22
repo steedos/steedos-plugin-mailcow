@@ -5,6 +5,8 @@ datasources:
     connection: 
       host: 127.0.0.1
       database: steedos
+    objectFiles:
+      - "./src/**/"
   mailcow:
     connection: 
       driver: mysql
