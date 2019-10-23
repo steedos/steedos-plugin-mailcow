@@ -80,7 +80,7 @@ router.get('/unread_mails', (req, res) => {
                     "@odata.count": results.length,
                     value: messages
                 })
-
+                connection.end()
             });
         });
     });
