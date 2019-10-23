@@ -2,7 +2,7 @@
   "name": "@steedos/plugin-mailcow",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "debug": "nodemon server.js",
     "start": "nodemon",

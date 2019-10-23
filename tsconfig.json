@@ -1,13 +1,23 @@
 {
-    "compilerOptions": {
-      "outDir": "./dist",
-      "target": "es5",
-      "allowJs": true,
-      "lib": ["es2015", "esnext.asynciterable"],
-      "sourceMap": true,
-      "importHelpers": true,
-      "skipLibCheck": true
-    },
-    "include": ["./src/**/*"]
-  }
-  
+  "compilerOptions": {
+    "outDir": "./lib",
+    "strict": false,
+    "noUnusedLocals": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "lib": [
+      "es5",
+      "es6",
+      "dom",
+      "es2015",
+      "es2016",
+      "es2017",
+      "esnext"
+    ],
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}
