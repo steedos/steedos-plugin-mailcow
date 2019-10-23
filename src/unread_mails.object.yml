@@ -1,5 +1,5 @@
-name: unread_mail
-table_name: unread_mail
+name: unread_mails
+table_name: unread_mails
 label: 未读邮件
 icon: macros
 enable_api: true
@@ -8,18 +8,35 @@ fields:
     type: text
     label: 邮件Id
     primary: true
+  from: 
+    type: html
+    label: 发件人
+    fieldDBType: varchar
+  to: 
+    type: html
+    label: 收件人
+    fieldDBType: varchar
   subject:
     type: text
     label: 邮件标题
+    is_name: true
   date:
     type: datetime
     label: 时间
+  body:
+    type: html
+    label: 内容
+    fieldDBType: varchar
+    is_wide: true
 list_views:
   all:
     label: All
     columns:
+      - from
       - subject
       - date
+      - to
+      - body
     filter_scope: space
 permission_set:
   user:

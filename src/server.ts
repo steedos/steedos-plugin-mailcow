@@ -1,9 +1,8 @@
 var server = require('@steedos/meteor-bundle-runner');
 var steedos = require('@steedos/core')
 var express = require('express');
-import unread from './message';
+import unread from './unread_mails';
 var app = express();
-console.log('unread', unread)
 app.use(unread);
 declare var WebApp;
 server.Fiber(function () {

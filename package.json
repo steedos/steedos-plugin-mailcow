@@ -34,6 +34,8 @@
   },
   "dependencies": {
     "imap-simple": "^4.3.0",
-    "mysql": "^2.17.1"
+    "mailparser": "^2.7.1",
+    "mysql": "^2.17.1",
+    "underscore": "^1.9.1"
   }
 }
