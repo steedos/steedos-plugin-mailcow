@@ -1,29 +1,35 @@
-name: mailbox
-table_name: mailbox
-label: Mailbox
+name: quota2
+table_name: quota2
+label: quota2
 icon: macros
 enable_api: true
 fields:
   username:
     type: text
-    label: Username
+    label: username
     primary: true
-  name:
-    type: text
-    label: Name
+  bytes:
+    type: number
+    label: bytes
+    required: true
+    defaultValue: 0
+  messages:
+    type: number
+    label: messages
+    required: true
+    defaultValue: 0
 list_views:
   all:
     label: All
     columns:
       - username
-      - name
     filter_scope: space
 permission_set:
   user:
-    allowCreate: true
-    allowDelete: true
-    allowEdit: true
-    allowRead: true
+    allowCreate: false
+    allowDelete: false
+    allowEdit: false
+    allowRead: false
     modifyAllRecords: false
     viewAllRecords: false
   admin:

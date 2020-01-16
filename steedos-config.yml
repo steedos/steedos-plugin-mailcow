@@ -1,25 +1,26 @@
 env:
   PORT: 5600
+  ROOT_URL: http://127.0.0.1:5600/
 datasources:
   default:
-    connection: 
+    connection:
       host: 127.0.0.1
       database: steedos
     objectFiles:
       - "./src/**/"
   mailcow:
-    connection: 
+    connection:
       driver: mysql
       host: 192.168.0.33
       port: 13306
       username: mailcow
       password: XUG2UPgw8NnHkkCjHc3Qk6VYt1fF
       database: mailcow
-    objectFiles: 
+    objectFiles:
       - "./mailcow/**/"
     appFiles:
       - "./mailcow/mailcow.app.yml"
 cfs:
   store: "local"
-  local: 
+  local:
     folder: "./storage"

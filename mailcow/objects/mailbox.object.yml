@@ -1,0 +1,81 @@
+name: mailbox
+table_name: mailbox
+label: Mailbox
+icon: macros
+enable_api: true
+fields:
+  username:
+    type: text
+    label: Email
+    primary: true
+    omit: true
+  local_part:
+    type: text
+    label: Username
+    inlineHelpText: left part of an email address
+    required: true
+  domain:
+    type: text
+    label: Domain
+    required: true
+  name:
+    type: text
+    label: Full name
+    required: true
+  quota:
+    type: number
+    label: Quota
+    defaultValue: 0
+    required: true
+  password:
+    type: text
+    label: Password
+  attributes:
+    type: text
+    label: attributes
+    omit: true
+    hidden: true
+  active:
+    type: boolean
+    label: active
+    defaultValue: true
+    required: true
+  mailbox_path_prefix:
+    type: text
+    label: mailbox_path_prefix
+    omit: true
+    hidden: true
+  kind:
+    type: text
+    label: kind
+    omit: true
+    hidden: true
+  multiple_bookings:
+    type: number
+    label: multiple_bookings
+    omit: true
+    hidden: true
+list_views:
+  all:
+    label: All
+    columns:
+      - username
+      - name
+      - quota
+      - active
+    filter_scope: space
+permission_set:
+  user:
+    allowCreate: true
+    allowDelete: true
+    allowEdit: true
+    allowRead: true
+    modifyAllRecords: false
+    viewAllRecords: false
+  admin:
+    allowCreate: true
+    allowDelete: true
+    allowEdit: true
+    allowRead: true
+    modifyAllRecords: true
+    viewAllRecords: true

@@ -1,0 +1,55 @@
+name: alias
+table_name: alias
+label: alias
+icon: macros
+enable_api: true
+fields:
+  id:
+    type: number
+    label: id
+    primary: true
+    generated: true
+  address:
+    type: text
+    label: address
+    required: true
+  goto:
+    type: text
+    label: goto
+    required: true
+  domain:
+    type: text
+    label: domain
+    required: true
+  private_comment:
+    type: text
+    label: private_comment
+  public_comment:
+    type: text
+    label: public_comment
+  active:
+    type: boolean
+    label: active
+    defaultValue: true
+    required: true
+list_views:
+  all:
+    label: All
+    columns:
+      - username
+    filter_scope: space
+permission_set:
+  user:
+    allowCreate: false
+    allowDelete: false
+    allowEdit: false
+    allowRead: false
+    modifyAllRecords: false
+    viewAllRecords: false
+  admin:
+    allowCreate: true
+    allowDelete: true
+    allowEdit: true
+    allowRead: true
+    modifyAllRecords: true
+    viewAllRecords: true
