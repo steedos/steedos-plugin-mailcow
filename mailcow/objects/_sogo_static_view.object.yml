@@ -1,0 +1,71 @@
+name: _sogo_static_view
+table_name: _sogo_static_view
+label: _sogo_static_view
+icon: macros
+enable_api: true
+fields:
+  c_uid:
+    type: text
+    label: c_uid
+    primary: true
+  domain:
+    type: text
+    label: domain
+    required: true
+  c_name:
+    type: text
+    label: c_name
+    required: true
+  c_password:
+    type: text
+    label: c_password
+    required: true
+  c_cn:
+    type: text
+    label: c_cn
+  mail:
+    type: text
+    label: mail
+    required: true
+  aliases:
+    type: text
+    label: aliases
+    required: true
+  ad_aliases:
+    type: text
+    label: ad_aliases
+    required: true
+    defaultValue: ""
+  ext_acl:
+    type: text
+    label: ext_acl
+    defaultValue: ""
+  kind:
+    type: text
+    label: kind
+    defaultValue: ""
+  multiple_bookings:
+    type: number
+    label: multiple_bookings
+    defaultValue: -1
+list_views:
+  all:
+    label: All
+    columns:
+      - username
+    filter_scope: space
+permission_set:
+  user:
+    allowCreate: false
+    allowDelete: false
+    allowEdit: false
+    allowRead: false
+    modifyAllRecords: false
+    viewAllRecords: false
+  admin:
+    allowCreate: true
+    allowDelete: true
+    allowEdit: true
+    allowRead: true
+    modifyAllRecords: true
+    viewAllRecords: true

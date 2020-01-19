@@ -19,7 +19,7 @@ module.exports = {
     let doc = this.doc;
     let username = `${doc.local_part}@${doc.domain}`;
     doc.username = username;
-    doc.attributes = `{"force_pw_update":"0","tls_enforce_in":"0","tls_enforce_out":"0","sogo_access":"1","mailbox_format":"maildir:","quarantine_notification":"hourly"}`;
+    doc.attributes = `{"force_pw_update": "0", "tls_enforce_in": "0", "tls_enforce_out": "0", "sogo_access": "1", "mailbox_format": "maildir:", "quarantine_notification": "hourly"}`;
     doc.password = hash_password(doc.password);
   },
   afterInsert: async function () {
@@ -28,12 +28,16 @@ module.exports = {
     let quotoa2Obj = steedosSchema.getObject('quota2');
     let aliasObj = steedosSchema.getObject('alias');
     let user_aclObj = steedosSchema.getObject('user_acl');
+    let _sogo_static_viewObj = steedosSchema.getObject('_sogo_static_view');
     let username = `${doc.local_part}@${doc.domain}`;
     let domain = doc.domain;
     let active = doc.active;
+    let password = doc.password;
+    let name = doc.name;
     await quotoa2Obj.insert({ username: username });
     await aliasObj.insert({ address: username, goto: username, domain: domain, active: active });
     await user_aclObj.insert({ username: username });
+    await _sogo_static_viewObj.insert({ c_uid: username, domain: domain, c_name: username, c_password: password, c_cn: name, mail: username, aliases: '', ad_aliases: '', ext_acl: '', kind: '', multiple_bookings: -1 });
   },
   beforeUpdate: async function () {
     let doc = this.doc;
