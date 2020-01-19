@@ -17,7 +17,6 @@ module.exports = {
   listenTo: 'mailbox',
   beforeInsert: async function () {
     let doc = this.doc;
-    console.log('=================================', doc);
     let username = `${doc.local_part}@${doc.domain}`;
     doc.username = username;
     doc.attributes = `{"force_pw_update":"0","tls_enforce_in":"0","tls_enforce_out":"0","sogo_access":"1","mailbox_format":"maildir:","quarantine_notification":"hourly"}`;
@@ -32,12 +31,31 @@ module.exports = {
     let username = `${doc.local_part}@${doc.domain}`;
     let domain = doc.domain;
     let active = doc.active;
-    quotoa2Obj.insert({ username: username });
-    aliasObj.insert({ address: username, goto: username, domain: domain, active: active });
-    user_aclObj.insert({ username: username });
+    await quotoa2Obj.insert({ username: username });
+    await aliasObj.insert({ address: username, goto: username, domain: domain, active: active });
+    await user_aclObj.insert({ username: username });
   },
   beforeUpdate: async function () {
-    var doc = this.doc;
-    var id = this.id;
+    let doc = this.doc;
+    let id = this.id;
+    delete doc.local_part;
+    delete doc.domain;
+    let steedosSchema = objectql.getSteedosSchema();
+    let aliasObj = steedosSchema.getObject('alias');
+    let mailboxObj = steedosSchema.getObject('mailbox');
+    if (_.has(doc, 'password')) {
+      if (doc.password.startsWith('{SSHA256}')) {
+        delete doc.password;
+      } else {
+        doc.password = hash_password(doc.password);
+      }
+    }
+    if (_.has(doc, 'active')) {
+      let mailbox = await mailboxObj.findOne(id);
+      let alias = await aliasObj.find({ filters: `(address eq '${mailbox.username}')` });
+      if (alias.length > 0) {
+        await aliasObj.update(alias[0].id, { active: doc.active });
+      }
+    }
   }
 };

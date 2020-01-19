@@ -1,35 +1,36 @@
 name: mailbox
 table_name: mailbox
-label: Mailbox
+label: 邮箱
 icon: macros
 enable_api: true
 fields:
   username:
     type: text
-    label: Email
+    label: 邮件地址
     primary: true
     omit: true
   local_part:
     type: text
-    label: Username
-    inlineHelpText: left part of an email address
+    label: 用户名
+    inlineHelpText: 邮件地址左边部分
     required: true
   domain:
     type: text
-    label: Domain
+    label: 域名
     required: true
   name:
     type: text
-    label: Full name
+    label: 姓名
     required: true
   quota:
     type: number
-    label: Quota
+    label: 容量
     defaultValue: 0
     required: true
+    inlineHelpText: 0表示不限制，单位为字节
   password:
     type: text
-    label: Password
+    label: 密码
   attributes:
     type: text
     label: attributes
@@ -37,7 +38,7 @@ fields:
     hidden: true
   active:
     type: boolean
-    label: active
+    label: 有效
     defaultValue: true
     required: true
   mailbox_path_prefix:
@@ -66,9 +67,9 @@ list_views:
     filter_scope: space
 permission_set:
   user:
-    allowCreate: true
-    allowDelete: true
-    allowEdit: true
+    allowCreate: false
+    allowDelete: false
+    allowEdit: false
     allowRead: true
     modifyAllRecords: false
     viewAllRecords: false
