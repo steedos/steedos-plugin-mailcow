@@ -13,6 +13,24 @@ function hash_password(password) {
   return hashedPassword;
 }
 
+async function update_sogo_static_view(c_uid) {
+  let steedosSchema = objectql.getSteedosSchema();
+  let _sogo_static_viewObj = steedosSchema.getObject('_sogo_static_view');
+  let sogo_viewObj = steedosSchema.getObject('sogo_view');
+  let sogoRecord = await sogo_viewObj.findOne(c_uid);
+  let sogoStaticRecord = await _sogo_static_viewObj.findOne(c_uid);
+  if (sogoRecord) {
+    if (sogoStaticRecord) { // update
+      delete sogoRecord.c_uid;
+      await _sogo_static_viewObj.update(c_uid, sogoRecord);
+    } else { // insert
+      await _sogo_static_viewObj.insert(sogoRecord);
+    }
+  } else { // remove
+    await _sogo_static_viewObj.delete(c_uid);
+  }
+}
+
 module.exports = {
   listenTo: 'mailbox',
   beforeInsert: async function () {
@@ -28,16 +46,13 @@ module.exports = {
     let quotoa2Obj = steedosSchema.getObject('quota2');
     let aliasObj = steedosSchema.getObject('alias');
     let user_aclObj = steedosSchema.getObject('user_acl');
-    let _sogo_static_viewObj = steedosSchema.getObject('_sogo_static_view');
     let username = `${doc.local_part}@${doc.domain}`;
     let domain = doc.domain;
     let active = doc.active;
-    let password = doc.password;
-    let name = doc.name;
     await quotoa2Obj.insert({ username: username });
     await aliasObj.insert({ address: username, goto: username, domain: domain, active: active });
     await user_aclObj.insert({ username: username });
-    await _sogo_static_viewObj.insert({ c_uid: username, domain: domain, c_name: username, c_password: password, c_cn: name, mail: username, aliases: '', ad_aliases: '', ext_acl: '', kind: '', multiple_bookings: -1 });
+    await update_sogo_static_view(username);
   },
   beforeUpdate: async function () {
     let doc = this.doc;
@@ -47,6 +62,8 @@ module.exports = {
     let steedosSchema = objectql.getSteedosSchema();
     let aliasObj = steedosSchema.getObject('alias');
     let mailboxObj = steedosSchema.getObject('mailbox');
+    let mailbox = await mailboxObj.findOne(id);
+    let username = mailbox.username;
     if (_.has(doc, 'password')) {
       if (doc.password.startsWith('{SSHA256}')) {
         delete doc.password;
@@ -55,11 +72,23 @@ module.exports = {
       }
     }
     if (_.has(doc, 'active')) {
-      let mailbox = await mailboxObj.findOne(id);
-      let alias = await aliasObj.find({ filters: `(address eq '${mailbox.username}')` });
+      let alias = await aliasObj.find({ filters: `(address eq '${username}')` });
       if (alias.length > 0) {
         await aliasObj.update(alias[0].id, { active: doc.active });
       }
     }
+  },
+  afterUpdate: async function () {
+    let id = this.id;
+    let steedosSchema = objectql.getSteedosSchema();
+    let mailboxObj = steedosSchema.getObject('mailbox');
+    let mailbox = await mailboxObj.findOne(id);
+    let username = mailbox.username;
+    await update_sogo_static_view(username);
+  },
+  afterDelete: async function () {
+    let previousDoc = this.previousDoc;
+    let username = previousDoc.username;
+    await update_sogo_static_view(username);
   }
 };

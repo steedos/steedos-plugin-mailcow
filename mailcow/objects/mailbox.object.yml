@@ -31,6 +31,7 @@ fields:
   password:
     type: text
     label: 密码
+    required: true
   attributes:
     type: text
     label: attributes
@@ -58,7 +59,7 @@ fields:
     hidden: true
 list_views:
   all:
-    label: All
+    label: 所有
     columns:
       - username
       - name
