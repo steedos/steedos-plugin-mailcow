@@ -37,7 +37,7 @@ list_views:
       - date
       - to
       - body
-    filter_scope: space
+
 permission_set:
   user:
     allowCreate: false

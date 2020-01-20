@@ -1,28 +1,18 @@
-name: quota2
-table_name: quota2
-label: quota2
+name: sogo_user_profile
+table_name: sogo_user_profile
+label: sogo_user_profile
 icon: macros
 enable_api: true
 fields:
-  username:
+  c_uid:
     type: text
-    label: username
+    label: c_uid
     primary: true
-  bytes:
-    type: number
-    label: bytes
-    required: true
-    defaultValue: 0
-  messages:
-    type: number
-    label: messages
-    required: true
-    defaultValue: 0
 list_views:
   all:
     label: All
     columns:
-      - username
+      - c_uid
 
 permission_set:
   user:

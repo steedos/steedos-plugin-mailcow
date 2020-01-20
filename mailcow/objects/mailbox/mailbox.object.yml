@@ -9,6 +9,7 @@ fields:
     label: 邮件地址
     primary: true
     omit: true
+    is_name: true
   local_part:
     type: text
     label: 用户名
@@ -32,6 +33,7 @@ fields:
     type: text
     label: 密码
     required: true
+    inlineHelpText: 如需修改密码可清空加密后的密码，输入想要设置的密码
   attributes:
     type: text
     label: attributes
@@ -65,7 +67,7 @@ list_views:
       - name
       - quota
       - active
-    filter_scope: space
+
 permission_set:
   user:
     allowCreate: false

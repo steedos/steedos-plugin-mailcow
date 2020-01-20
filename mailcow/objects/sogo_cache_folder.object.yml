@@ -1,28 +1,23 @@
-name: quota2
-table_name: quota2
-label: quota2
+name: sogo_cache_folder
+table_name: sogo_cache_folder
+label: sogo_cache_folder
 icon: macros
 enable_api: true
 fields:
-  username:
+  c_uid:
     type: text
-    label: username
+    label: c_uid
     primary: true
-  bytes:
-    type: number
-    label: bytes
-    required: true
-    defaultValue: 0
-  messages:
-    type: number
-    label: messages
-    required: true
-    defaultValue: 0
+  c_path:
+    type: text
+    label: c_path
+    # primary: true
 list_views:
   all:
     label: All
     columns:
-      - username
+      - c_uid
+      - c_path
 
 permission_set:
   user:

@@ -1,6 +1,11 @@
 {
-    "watch": ["src", "mailcow"],
-    "ext": "ts,js,yml",
-    "ignore": ["src/**/*.spec.ts"],
-    "exec": "ts-node ./src/server.ts"
-  }
+  "watch": [
+    "src",
+    "mailcow"
+  ],
+  "ext": "ts,js,yml",
+  "ignore": [
+    "src/**/*.spec.ts"
+  ],
+  "exec": "ts-node ./src/server.ts"
+}

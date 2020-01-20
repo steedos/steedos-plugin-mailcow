@@ -1,28 +1,21 @@
-name: quota2
-table_name: quota2
-label: quota2
+name: spamalias
+table_name: spamalias
+label: spamalias
 icon: macros
 enable_api: true
 fields:
-  username:
+  address:
     type: text
-    label: username
+    label: address
     primary: true
-  bytes:
-    type: number
-    label: bytes
-    required: true
-    defaultValue: 0
-  messages:
-    type: number
-    label: messages
-    required: true
-    defaultValue: 0
+  goto:
+    type: text
+    label: goto
 list_views:
   all:
     label: All
     columns:
-      - username
+      - goto
 
 permission_set:
   user:

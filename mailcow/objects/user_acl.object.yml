@@ -57,7 +57,7 @@ list_views:
     label: All
     columns:
       - username
-    filter_scope: space
+
 permission_set:
   user:
     allowCreate: false

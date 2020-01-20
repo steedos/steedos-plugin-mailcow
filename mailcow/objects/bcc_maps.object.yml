@@ -1,28 +1,22 @@
-name: quota2
-table_name: quota2
-label: quota2
+name: bcc_maps
+table_name: bcc_maps
+label: bcc_maps
 icon: macros
 enable_api: true
 fields:
-  username:
-    type: text
-    label: username
+  id:
+    type: number
+    label: id
     primary: true
-  bytes:
-    type: number
-    label: bytes
-    required: true
-    defaultValue: 0
-  messages:
-    type: number
-    label: messages
-    required: true
-    defaultValue: 0
+    generated: true
+  local_dest:
+    type: text
+    label: local_dest
 list_views:
   all:
     label: All
     columns:
-      - username
+      - local_dest
 
 permission_set:
   user:

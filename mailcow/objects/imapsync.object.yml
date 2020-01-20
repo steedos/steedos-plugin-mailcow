@@ -1,28 +1,22 @@
-name: quota2
-table_name: quota2
-label: quota2
+name: imapsync
+table_name: imapsync
+label: imapsync
 icon: macros
 enable_api: true
 fields:
-  username:
-    type: text
-    label: username
+  id:
+    type: number
+    label: id
     primary: true
-  bytes:
-    type: number
-    label: bytes
-    required: true
-    defaultValue: 0
-  messages:
-    type: number
-    label: messages
-    required: true
-    defaultValue: 0
+    generated: true
+  user2:
+    type: text
+    label: user2
 list_views:
   all:
     label: All
     columns:
-      - username
+      - user2
 
 permission_set:
   user:

@@ -1,28 +1,22 @@
-name: quota2
-table_name: quota2
-label: quota2
+name: sender_acl
+table_name: sender_acl
+label: sender_acl
 icon: macros
 enable_api: true
 fields:
-  username:
-    type: text
-    label: username
+  id:
+    type: number
+    label: id
     primary: true
-  bytes:
-    type: number
-    label: bytes
-    required: true
-    defaultValue: 0
-  messages:
-    type: number
-    label: messages
-    required: true
-    defaultValue: 0
+    generated: true
+  logged_in_as:
+    type: text
+    label: logged_in_as
 list_views:
   all:
     label: All
     columns:
-      - username
+      - logged_in_as
 
 permission_set:
   user:
