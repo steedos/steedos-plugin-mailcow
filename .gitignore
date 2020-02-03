@@ -2,3 +2,4 @@ node_modules
 steedos-config.yml
 **/lib
 storage/**
+oausers.json
