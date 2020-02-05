@@ -1,6 +1,6 @@
 name: mailbox
 table_name: mailbox
-label: 邮箱
+label: 邮件账户
 icon: macros
 enable_api: true
 fields:
