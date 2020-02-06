@@ -14,7 +14,7 @@ datasources:
       host: 192.168.0.33
       port: 13306
       username: mailcow
-      password: XUG2UPgw8NnHkkCjHc3Qk6VYt1fF
+      password: YoEkaWrBQls7RyV29iPHu5RnSO4F
       database: mailcow
     objectFiles:
       - "./mailcow/**/"
