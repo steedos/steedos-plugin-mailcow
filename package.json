@@ -3,10 +3,16 @@
   "version": "0.0.1",
   "description": "",
   "main": "lib/index.js",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "debug": "nodemon server.js",
     "start": "nodemon",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc",
+    "prepare": "tsc"
   },
   "repository": {
     "type": "git",
