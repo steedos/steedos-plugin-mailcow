@@ -35,7 +35,9 @@ exports.deleteRelatedRecords = async function deleteRelatedRecords(tableName, fi
   let steedosSchema = objectql.getSteedosSchema();
   let obj = steedosSchema.getObject(tableName);
   let records = await obj.find({ filters: filters });
-  for (const r of records) {
-    await obj.delete(r._id);
+  if (records.length > 0){
+    for (const r of records) {
+      await obj.delete(r._id);
+    }
   }
 };

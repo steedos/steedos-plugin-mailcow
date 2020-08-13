@@ -79,15 +79,18 @@ module.exports = {
     await manager.deleteRelatedRecords('sogo_user_profile', `c_uid eq '${username}'`);
     await manager.deleteRelatedRecords('sogo_cache_folder', `c_uid eq '${username}'`);
     await manager.deleteRelatedRecords('sogo_acl', `c_uid eq '${username}'`);
+    await manager.deleteRelatedRecords('sogo_view', `c_uid eq '${username}'`);
 
     let sfi = await sogo_folder_infoObj.find({ filters: `c_path2 eq '${username}'`, fields: ['c_folder_id'] });
     let c_folder_ids = _.pluck(sfi, 'c_folder_id');
-    await manager.deleteRelatedRecords('sogo_store', [['c_folder_id', '=', c_folder_ids]]);
-    await manager.deleteRelatedRecords('sogo_quick_contact', [['c_folder_id', '=', c_folder_ids]]);
-    await manager.deleteRelatedRecords('sogo_quick_appointment', [['c_folder_id', '=', c_folder_ids]]);
+    if (c_folder_ids.length > 0){
+      await manager.deleteRelatedRecords('sogo_store', [['c_folder_id', '=', c_folder_ids]]);
+      await manager.deleteRelatedRecords('sogo_quick_contact', [['c_folder_id', '=', c_folder_ids]]);
+      await manager.deleteRelatedRecords('sogo_quick_appointment', [['c_folder_id', '=', c_folder_ids]]);
+    }
 
-    await manager.deleteRelatedRecords('sogo_folder_info', 'c_path2', username);
-    await manager.deleteRelatedRecords('bcc_maps', 'local_dest', username);
+    await manager.deleteRelatedRecords('sogo_folder_info', `c_path2 eq '${username}'`);
+    await manager.deleteRelatedRecords('bcc_maps', `local_dest eq '${username}'`);
     // Prepare for oauth2
     // let mailboxObj = steedosSchema.getObject('oauth_access_tokens');
     // let mailboxObj = steedosSchema.getObject('oauth_refresh_tokens');
