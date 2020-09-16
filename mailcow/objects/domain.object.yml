@@ -1,0 +1,81 @@
+name: domain
+table_name: domain
+label: 域设置
+icon: macros
+enable_api: true
+fields:
+  domain:
+    type: text
+    label: 域
+    is_name: true
+    primary: true
+    required: true
+  description:
+    type: text
+    label: 描述
+  aliases:
+    type: number
+    label: 别名数
+    defaultValue: 400
+  mailboxes:
+    type: number
+    label: 邮箱数
+    defaultValue: 10
+  defquota:
+    type: number
+    label: 默认邮箱容量
+    defaultValue: 3072
+  maxquota:
+    type: number
+    label: 单个邮箱最大容量(Mib)
+    defaultValue: 10240
+  quota:
+    type: number
+    label: 总容量(Mib)
+    defaultValue: 10240
+  relayhost:
+    type: text
+    label: 依赖发件人地址(指定特定IP发送邮件)
+  gal:
+    type: boolean
+    label: 全局地址列表
+    defaultValue: true
+  active:
+    type: boolean
+    label: 有效
+    defaultValue: true
+  backupmx:
+    type: boolean
+    label: 中继域
+    group: MX备份选项
+    defaultValue: false
+  relay_all_recipients:
+    type: boolean
+    label: 中继所有收件人
+    group: MX备份选项
+    defaultValue: false
+list_views:
+  all:
+    label: 所有
+    columns:
+      - domain
+      - description
+      - aliases
+      - maxquota
+      - quota
+
+permission_set:
+  user:
+    allowCreate: false
+    allowDelete: false
+    allowEdit: false
+    allowRead: false
+    modifyAllRecords: false
+    viewAllRecords: false
+  admin:
+    allowCreate: true
+    allowDelete: true
+    allowEdit: true
+    allowRead: true
+    modifyAllRecords: true
+    viewAllRecords: true

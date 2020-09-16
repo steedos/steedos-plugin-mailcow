@@ -5,4 +5,5 @@ icon_slds: thanks
 is_creator: true
 objects: 
   - mailbox
+  - domain
   - filterconf
