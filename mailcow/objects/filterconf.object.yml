@@ -1,6 +1,6 @@
 name: filterconf
 table_name: filterconf
-label: filterconf
+label: 过滤器
 icon: macros
 enable_api: true
 fields:
@@ -11,12 +11,25 @@ fields:
     generated: true
   object:
     type: text
-    label: object
+    label: 对象
+  option:
+    type: select
+    options:
+      - label: 白名单
+        value: "whitelist_from"
+      - label: 黑名单
+        value: "blacklist_from"
+    label: 类型
+  value:
+    type: text
+    label: 值
 list_views:
   all:
-    label: All
+    label: 所有
     columns:
       - object
+      - option
+      - value
 
 permission_set:
   user:
