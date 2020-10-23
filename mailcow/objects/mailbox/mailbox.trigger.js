@@ -8,7 +8,7 @@ module.exports = {
     let doc = this.doc;
     let username = `${doc.local_part}@${doc.domain}`;
     doc.username = username;
-    doc.attributes = `{"force_pw_update": "0", "tls_enforce_in": "0", "tls_enforce_out": "0", "sogo_access": "1", "mailbox_format": "maildir:", "quarantine_notification": "hourly"}`;
+    doc.attributes = `{"force_pw_update": "0", "tls_enforce_in": "0", "tls_enforce_out": "0", "sogo_access": "1", "imap_access": "1", "pop3_access": "1", "smtp_access": "1", "mailbox_format": "maildir:", "quarantine_notification": "hourly"}`;
     doc.password = manager.hash_password(doc.password);
   },
   afterInsert: async function () {
