@@ -1,13 +1,16 @@
 name: sogo_user_profile
 table_name: sogo_user_profile
-label: sogo_user_profile
+label: 用户设置
 icon: macros
 enable_api: true
 fields:
   c_uid:
     type: text
-    label: c_uid
+    label: 账户
     primary: true
+  c_defaults:
+    type: textarea
+    label: 默认设置
 list_views:
   all:
     label: All

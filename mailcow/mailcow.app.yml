@@ -7,3 +7,4 @@ objects:
   - mailbox
   - domain
   - filterconf
+  - sogo_user_profile
