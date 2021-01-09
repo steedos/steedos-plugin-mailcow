@@ -99,6 +99,7 @@ let updateUserProfile = async function(){
         new_default.SOGoMailReceiptOutsideDomainAction = "send";
         new_default.SOGoMailReceiptAnyAction = "send";
         new_default.SOGoMailReceiptNonRecipientAction = "send";
+        new_default.SOGoTimeZone = "Asia\/Shanghai";
 
         new_default = JSON.stringify(new_default);
 
