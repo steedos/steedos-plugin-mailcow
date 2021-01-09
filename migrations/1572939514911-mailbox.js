@@ -52,7 +52,7 @@ let updateUsers = async function () {
 
 let updateUserProfile = async function(){
   let mails = await mailbox.find({
-    filters: [["domain", "=", "qdrq.com"]]
+    filters: [["domain", "=", "sgpnc.cn"]]
   }).catch((ex) => {
     console.error(ex);
     return [];
