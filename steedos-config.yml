@@ -14,12 +14,17 @@ datasources:
       host: 192.168.0.33
       port: 13306
       username: mailcow
-      password: YoEkaWrBQls7RyV29iPHu5RnSO4F
+      password: 
       database: mailcow
     objectFiles:
       - "./mailcow/**/"
     appFiles:
       - "./mailcow/mailcow.app.yml"
+public:
+  webservices:
+    mailcow: 
+      url: ${MAILCOW_URL}
+      initial_passwd: ${MAILCOW_INITIAL_PASSWD}
 cfs:
   store: "local"
   local:

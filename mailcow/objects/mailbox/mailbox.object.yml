@@ -67,6 +67,12 @@ list_views:
       - name
       - quota
       - active
+actions:
+  copyPwd:
+    is_enable: false
+    label: 复制初始密码
+    'on': record_only
+    visible: true
 
 permission_set:
   user:
