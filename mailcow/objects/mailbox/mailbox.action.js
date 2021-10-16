@@ -5,7 +5,7 @@ module.exports = {
         // 初始密码取环境变量
         var config = webservices.mailcow || { initial_passwd: ''}, initial_passwd = config.initial_passwd;
         
-        if (!config || initial_passwd){
+        if (!config || !initial_passwd){
             initial_passwd = "";
         }
 
